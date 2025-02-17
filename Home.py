@@ -7,5 +7,5 @@ st.set_page_config(
     #page_icon="👋",
 )
 
-st.title('Qualitätsmanagement Datenmanagement')
+st.title('QM Datenmanagement')
 
