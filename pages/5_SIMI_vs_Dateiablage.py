@@ -12,8 +12,6 @@ st.write(
     """Es wird geprüft, ob die Themen auf der Dateiablage (files.geo.so.ch) mit den Themenpublikationen in SIMI übereinstimmen."""
 )
 
-duckdb.sql("ATTACH IF NOT EXISTS 'https://sos-ch-dk-2.exo.io/ch.so.agi.betrieb.qm/qmbetrieb.duckdb' AS qmbetrieb (READ_ONLY);")
-
 df = duckdb.sql("SELECT kennung, kategorie FROM qmbetrieb.main.diff_kennung_simi_datenabgabe ORDER BY kennung, kategorie;").df()
 
 st.dataframe(

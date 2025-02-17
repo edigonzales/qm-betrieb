@@ -12,8 +12,6 @@ st.write(
     """Es wird geprüft, ob bei relationalen Themenpublikationen falsche Dateiformate vorhanden sind."""
 )
 
-duckdb.sql("ATTACH IF NOT EXISTS 'https://sos-ch-dk-2.exo.io/ch.so.agi.betrieb.qm/qmbetrieb.duckdb' AS qmbetrieb (READ_ONLY);")
-
 df = duckdb.sql("SELECT kennung FROM qmbetrieb.main.superflous_publication_formats ORDER BY kennung;").df()
 
 st.dataframe(

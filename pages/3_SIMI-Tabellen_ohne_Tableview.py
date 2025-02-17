@@ -12,8 +12,6 @@ st.write(
     """Es wird geprüft, ob jede Tabelle in SIMI mit mindestens einer Tableview verknüpft ist."""
 )
 
-duckdb.sql("ATTACH IF NOT EXISTS 'https://sos-ch-dk-2.exo.io/ch.so.agi.betrieb.qm/qmbetrieb.duckdb' AS qmbetrieb (READ_ONLY);")
-
 df = duckdb.sql("SELECT schema_name, table_name FROM qmbetrieb.main.simi_table_ohne_tableview ORDER BY schema_name, table_name;").df()
 
 st.dataframe(

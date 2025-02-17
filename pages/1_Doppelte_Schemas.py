@@ -12,8 +12,6 @@ st.write(
     """Es wird geprüft, ob es in der Edit- oder Pub-DB doppelte Schemas hat. Doppelt im Sinn von versioniert und die ältere Version ist noch vorhanden."""
 )
 
-duckdb.sql("ATTACH IF NOT EXISTS 'https://sos-ch-dk-2.exo.io/ch.so.agi.betrieb.qm/qmbetrieb.duckdb' AS qmbetrieb (READ_ONLY);")
-
 df = duckdb.sql("SELECT schema_stamm, version_anzahl, datenbank FROM qmbetrieb.main.geo_doppelte_schemas").df()
 
 st.dataframe(
